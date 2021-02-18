@@ -7,7 +7,7 @@
 
 ## Description 
  
- `LGLExtension`是一个`纯swift`的轻量级的库，主要目的还是可以便捷的编写代码， 欢迎大家提意见和扩充内容。
+ `LGLExtension`是一个`Swift`的轻量级的库，主要目的还是可以便捷的编写代码， 欢迎大家提意见和扩充内容。
 
 
 ## Installation
@@ -21,6 +21,7 @@ pod 'LGLExtension'
 - 1、给`结构体（ LGL<Base>）`添加不同类的`便捷构造器和设置属性的方法`。
 - 2、使用泛型`<Base>`使得可以接收不同的类。
 - 3、每个类通过遵循协议` LGLCompatible`使得每个类都拥有 `LGL()`和 `LGL.self`,以便通过前缀 `lgl`来调用添加的方法。
+- 4、 对原有的类侵入少。
 
 ## Use
 
@@ -38,6 +39,8 @@ pod 'LGLExtension'
   | UINavigationController |    |  xxx.lgl.set(...) |
   | UITabBarController |    |  xxx.lgl.set(...) |
   | UIImage |   |  xxx.lgl.set(...) |
+  | NSRegularExpression | NSRegularExpression.lgl.isMatch(...) 、 NSRegularExpression.lgl.replacement(...)| - |
+  | String | -| xxx.lgl.set(...)、 xxx.lgl.get(...) 、  xxx.lgl.isMatch(...) 、xxx.lgl.isCharacterSetWithStr(...)|
 
  `有些通过实例设置属性的可能不仅仅是 xxx.lgl.set(),  也有 xxx.lgl.setxxx(...)`
 

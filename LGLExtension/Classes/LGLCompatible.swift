@@ -1,15 +1,15 @@
 //
 //  LGLCompatible.swift
-//  Swift学习
+//  LGLExtension
 //
-//  Created by Passer on 2021/2/16.
+//  Created by Passer on 2021/2/17.
 //
 
 import UIKit
 
 public protocol LGLCompatible {}
 
-///注意：写上get是为了将来可以扩充mutating，让编译器编译通过
+
 public extension LGLCompatible {
     var lgl:LGL<Self> {
         set {}
