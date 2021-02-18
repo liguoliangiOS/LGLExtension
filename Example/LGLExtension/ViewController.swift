@@ -16,6 +16,9 @@ class ViewController: UIViewController {
         testUILabel()
         let lglv = LGLView()
         lglv.lgl.set(UIColor.lgl.color(0x000000))
+        
+     
+        
 //        let lglv2 = LGLView.lgl.view(20)
     }
 

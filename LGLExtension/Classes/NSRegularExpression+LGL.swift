@@ -1,6 +1,6 @@
 //
 //  NSRegularExpression+LGL.swift
-//  Swift学习
+//  LGLExtension
 //
 //  Created by Passer on 2021/2/18.
 //
@@ -9,7 +9,7 @@ import UIKit
 
 extension NSRegularExpression: LGLCompatible {}
 
-extension LGL where Base == NSRegularExpression {
+public extension LGL where Base == NSRegularExpression {
     /**
      扩展匹配的方法
      - parameter string:   要匹配的字符串

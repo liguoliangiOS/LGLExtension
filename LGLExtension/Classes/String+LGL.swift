@@ -1,6 +1,6 @@
 //
 //  String+LGL.swift
-//  Swift学习
+//  LGLExtension
 //
 //  Created by Passer on 2021/2/18.
 //
@@ -10,7 +10,7 @@ import UIKit
 
 extension String: LGLCompatible {}
 
-extension LGL where Base == String {
+public extension LGL where Base == String {
     
     /**
      判断某一个字符串是否匹配某一个正则，用于输入结束后整体的判定
@@ -26,7 +26,7 @@ extension LGL where Base == String {
      - parameter characterStr:  输入的单个字符
      - parameter judgeText:  正则表达式字符串
     */
-    func isCharacterSetWithStr(_ characterStr: String, _ judgeText: String) -> Bool {
+    static func isCharacterSetWithStr(_ characterStr: String, _ judgeText: String) -> Bool {
           let characterSet = NSCharacterSet(charactersIn: characterStr).inverted
           let filterArr:[String] = judgeText.components(separatedBy: characterSet)
           let filterstr:String = filterArr.joined(separator: "")
