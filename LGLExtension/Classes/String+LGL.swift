@@ -102,16 +102,4 @@ extension LGL where Base == String {
         attributStr.addAttribute(NSAttributedString.Key.foregroundColor, value: changeColor, range: range)
         return attributStr
     }
-    
-    /**
-     设置一条文字中间的线
-     - parameter range: 设置文字范围
-     - parameter lineColor: 文字颜色
-    */
-    @available(iOS 6.0, *)
-    func setThroughLine(_ range: NSRange, _ lineColor: UIColor) -> NSAttributedString {
-        let attributeStr = NSMutableAttributedString(string: base)
-        attributeStr.addAttributes([NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue, NSAttributedString.Key.strikethroughColor: lineColor], range: range)
-        return attributeStr
-    }
 }
