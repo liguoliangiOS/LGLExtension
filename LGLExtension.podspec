@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
   'LGLExtension is  a library written in swift'
                        DESC
 
-  s.homepage         = 'https://github.com/lgliang/LGLExtension'
+  s.homepage         = 'https://github.com/liguoliangiOS/LGLExtension'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'liguoliangiOS' => '185226139@qq.com' }
-  s.source           = { :git => 'https://github.com/lgliang/LGLExtension.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/liguoliangiOS/LGLExtension.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
