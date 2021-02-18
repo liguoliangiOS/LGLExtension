@@ -108,9 +108,10 @@ extension LGL where Base == String {
      - parameter range: 设置文字范围
      - parameter lineColor: 文字颜色
     */
+    @available(iOS 6.0, *)
     func setThroughLine(_ range: NSRange, _ lineColor: UIColor) -> NSAttributedString {
         let attributeStr = NSMutableAttributedString(string: base)
-        attributeStr.addAttributes([NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.styleSingle.rawValue, NSAttributedString.Key.strikethroughColor: lineColor], range: range)
+        attributeStr.addAttributes([NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue, NSAttributedString.Key.strikethroughColor: lineColor], range: range)
         return attributeStr
     }
 }
