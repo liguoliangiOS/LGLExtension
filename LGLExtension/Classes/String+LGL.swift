@@ -26,7 +26,7 @@ public extension LGL where Base == String {
      - parameter characterStr:  输入的单个字符
      - parameter judgeText:  正则表达式字符串
     */
-    static func isCharacterSetWithStr(_ characterStr: String, _ judgeText: String) -> Bool {
+    func isCharacterSetWithStr(_ characterStr: String, _ judgeText: String) -> Bool {
           let characterSet = NSCharacterSet(charactersIn: characterStr).inverted
           let filterArr:[String] = judgeText.components(separatedBy: characterSet)
           let filterstr:String = filterArr.joined(separator: "")
