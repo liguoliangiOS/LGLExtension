@@ -14,14 +14,14 @@ public extension LGL where Base == UIImage {
     /**
      图片旋转90度
     */
-    func imageRotate90() -> UIImage {
+    func setImageRotate90() -> UIImage {
         return Base(cgImage:base.cgImage!, scale:base.scale, orientation: .down)
     }
     
     /**
      返回原始图片
     */
-    func imageOriginal() -> UIImage {
+    func setImageOriginal() -> UIImage {
         return base.withRenderingMode(.alwaysOriginal)
     }
 
@@ -32,7 +32,7 @@ public extension LGL where Base == UIImage {
         resizeMode UIImageResizingModeTile -> 进行区域复制模式拉伸 【-】 -> 【-】【-】【-】
         resizeMode UIImageResizingModeStretch -> 进行渐变复制模式拉伸 连续的 【-】 -> 【-----】
      */
-    func stretchImage(_ edgeInset:UIEdgeInsets, _ resizeMode: UIImage.ResizingMode) -> UIImage {
+    func setStretchImage(_ edgeInset:UIEdgeInsets, _ resizeMode: UIImage.ResizingMode) -> UIImage {
         return base.resizableImage(withCapInsets:edgeInset, resizingMode: resizeMode)
     }
 }

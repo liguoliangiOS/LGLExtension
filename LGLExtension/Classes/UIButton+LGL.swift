@@ -7,9 +7,9 @@
 
 import UIKit
 
-public extension LGL where Base == UIButton {
+public extension LGL where Base : UIButton {
     
-    //MARK: --- 设置UIButton的属性
+    //MARK: ---给LGL扩充  设置UIButton及其子类的属性
     /**
      - parameter target:        按钮target
      - parameter action:        按钮点击方法
@@ -84,7 +84,7 @@ public extension LGL where Base == UIButton {
     }
     
     
-    //MARK: --- 创建UIButton实例对象
+    //MARK: ---给LGL扩充  创建UIButton及其子类 方法
     
     /**
      - parameter type:             按钮类型

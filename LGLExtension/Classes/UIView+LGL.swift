@@ -10,22 +10,19 @@ import UIKit
 ///遵循LGLCompatible让UIView和UIView的子类拥有LGL实例和LGL.self
 extension UIView: LGLCompatible {}
 
-//MARK: --- UIView扩充设置属性方法
-public extension LGL where Base == UIView {
+//MARK: --- 给LGL扩充 UIView及其子类 添加 设置属性方法
+public extension LGL where Base : UIView {
+   
     /**
-     - parameter backgroundColor:  UIView的背景颜色
-    */
-    func set(_ backgroundColor: UIColor) {
-        base.backgroundColor = backgroundColor
-    }
-    /**
-     - parameter backgroundColor:  UIView的背景颜色
+     - parameter backgroundColor:  背景颜色
      - parameter cornerRadius:     圆角大小
     */
     func set(_ backgroundColor: UIColor, _ cornerRadius: CGFloat = 0) {
         base.backgroundColor = backgroundColor
-        base.layer.masksToBounds = true
-        base.layer.cornerRadius = cornerRadius
+        if cornerRadius != 0 {
+            base.layer.masksToBounds = true
+            base.layer.cornerRadius = cornerRadius
+        }
     }
     
     /**
@@ -36,17 +33,7 @@ public extension LGL where Base == UIView {
         base.layer.cornerRadius = cornerRadius
     }
     
-    //MARK: --- 创建UIView实例对象
-    
-    /**
-     - parameter backgroundColor:  UIView的背景颜色
-     - returns:                    返回创建的UIView实例
-    */
-    static func view(_ backgroundColor: UIColor) -> Base {
-       let view = Base()
-        view.backgroundColor = backgroundColor
-        return view
-    }
+    //MARK: --- 给LGL扩充 创建UIView及其子类 的方法
     
     /**
      - parameter cornerRadius:     圆角大小
@@ -67,13 +54,15 @@ public extension LGL where Base == UIView {
     static func view(_ backgroundColor: UIColor, _ cornerRadius: CGFloat = 0) -> Base {
        let view = Base()
         view.backgroundColor = backgroundColor
-        view.layer.masksToBounds = true
-        view.layer.cornerRadius = cornerRadius
+        if cornerRadius != 0 {
+            view.layer.masksToBounds = true
+            view.layer.cornerRadius = cornerRadius
+        }
         return view
     }
     
     //MARK: -获取当前View的控制器
-    func currentVC() -> UIViewController? {
+    func getCurrentVC() -> UIViewController? {
         var nextResponder: UIResponder? = base
         repeat {
             nextResponder = nextResponder?.next
@@ -94,7 +83,7 @@ public extension LGL where Base == UIView {
     }
     
     //MARK: -截图
-    func screenshotImage() -> UIImage? {
+    func getScreenshotImage() -> UIImage? {
         UIGraphicsBeginImageContext(base.bounds.size)
         if base.responds(to: #selector(UIView.drawHierarchy(in:afterScreenUpdates:))) {
             base.drawHierarchy(in: base.bounds, afterScreenUpdates: false)
@@ -233,7 +222,7 @@ public extension LGL where Base : UIView {
      - parameter corners:        设置圆角的位置
      - parameter cornerRadius:   圆角大小
     */
-    func radius(_ corners: UIRectCorner,_ cornerRadius: CGFloat) {
+    func setRadius(_ corners: UIRectCorner,_ cornerRadius: CGFloat) {
         let shapeLayer = CAShapeLayer()
         shapeLayer.frame = base.bounds
         shapeLayer.path = UIBezierPath(roundedRect: base.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: cornerRadius, height: cornerRadius)).cgPath
@@ -245,7 +234,7 @@ public extension LGL where Base : UIView {
      - parameter borderColor:    边框颜色
      - parameter borderWidth:    边框大小
     */
-    func border(_ borderColor:UIColor, _ borderWidth: CGFloat)  {
+    func setBorder(_ borderColor:UIColor, _ borderWidth: CGFloat)  {
         base.layer.borderColor = borderColor.cgColor
         base.layer.borderWidth = borderWidth
     }
@@ -257,7 +246,7 @@ public extension LGL where Base : UIView {
      - parameter borderColor:    边框颜色
      - parameter borderWidth:    边框大小
     */
-    func borderRadius(_ cornerRadius: CGFloat, _ masksToBounds: Bool, _ borderColor:UIColor, _ borderWidth: CGFloat)  {
+    func setBorderRadius(_ cornerRadius: CGFloat, _ masksToBounds: Bool, _ borderColor:UIColor, _ borderWidth: CGFloat)  {
         base.layer.masksToBounds = masksToBounds
         base.layer.cornerRadius = cornerRadius
         base.layer.borderColor = borderColor.cgColor
@@ -272,10 +261,10 @@ public extension LGL where Base : UIView {
      - parameter endColor:      结束颜色
      - parameter cornerRadius:  圆角大小
     */
-    func horizontalGradientLayer(_ startColor: UIColor, _ endColor: UIColor, _ cornerRadius:CGFloat) {
+    func setHorizontalGradientLayer(_ startColor: UIColor, _ endColor: UIColor, _ cornerRadius:CGFloat) {
         let startPoint = CGPoint(x: 0, y: 0)
         let endPoint = CGPoint(x: 1, y: 0)
-        gradientLayer(startColor, startPoint, endColor, endPoint, cornerRadius)
+        setGradientLayer(startColor, startPoint, endColor, endPoint, cornerRadius)
     }
     
     /**
@@ -284,10 +273,10 @@ public extension LGL where Base : UIView {
      - parameter endColor:      结束颜色
      - parameter cornerRadius:  圆角大小
     */
-    func verticalGradientLayer(_ startColor: UIColor, _ endColor: UIColor, _ cornerRadius:CGFloat) {
+    func setVerticalGradientLayer(_ startColor: UIColor, _ endColor: UIColor, _ cornerRadius:CGFloat) {
         let startPoint = CGPoint(x: 0, y: 0)
         let endPoint = CGPoint(x: 0, y: 1)
-        gradientLayer(startColor, startPoint, endColor, endPoint, cornerRadius)
+        setGradientLayer(startColor, startPoint, endColor, endPoint, cornerRadius)
     }
     
     /**
@@ -298,7 +287,7 @@ public extension LGL where Base : UIView {
      - parameter endPoint:      结束位置
      - parameter cornerRadius:  圆角大小
     */
-    func gradientLayer(_ startColor: UIColor, _ startPoint:CGPoint, _ endColor: UIColor, _ endPoint:CGPoint, _ cornerRadius:CGFloat) {
+    func setGradientLayer(_ startColor: UIColor, _ startPoint:CGPoint, _ endColor: UIColor, _ endPoint:CGPoint, _ cornerRadius:CGFloat) {
         let gradient = CAGradientLayer()
         gradient.frame = base.bounds
         gradient.colors = [startColor.cgColor, endColor.cgColor]
@@ -318,7 +307,7 @@ public extension LGL where Base : UIView {
      - parameter shadowRadius:   阴影圆角
      - parameter cornerRadius:   阴影圆角大小
     */
-    func shadow( _ shadowColor:UIColor, _ shadowOffset:CGSize, _ shadowOpacity:Float, _ shadowRadius:CGFloat, _ cornerRadius:CGFloat) {
+    func setShadow( _ shadowColor:UIColor, _ shadowOffset:CGSize, _ shadowOpacity:Float, _ shadowRadius:CGFloat, _ cornerRadius:CGFloat) {
         base.layer.shadowColor = shadowColor.cgColor
         base.layer.shadowOpacity = shadowOpacity
         base.layer.shadowRadius = shadowRadius
@@ -336,7 +325,7 @@ public extension LGL where Base : UIView {
      - parameter borderColor:    边框颜色
      - parameter borderWidth:    边框宽度
     */
-    func shadowBorder( _ shadowColor:UIColor, _ shadowOffset:CGSize, _ shadowOpacity:Float, _ shadowRadius:CGFloat, _ cornerRadius:CGFloat, _ borderColor: UIColor, _ borderWidth: CGFloat) {
+    func setShadowBorder( _ shadowColor:UIColor, _ shadowOffset:CGSize, _ shadowOpacity:Float, _ shadowRadius:CGFloat, _ cornerRadius:CGFloat, _ borderColor: UIColor, _ borderWidth: CGFloat) {
         base.layer.shadowColor = shadowColor.cgColor
         base.layer.shadowOpacity = shadowOpacity
         base.layer.shadowRadius = shadowRadius

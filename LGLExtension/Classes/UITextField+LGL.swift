@@ -7,9 +7,9 @@
 
 import UIKit
 
-public extension LGL where Base == UITextField {
+public extension LGL where Base : UITextField {
     
-    //MARK: --- 设置UITextField的属性
+    //MARK: --- 给LGL扩充  设置UITextField及其子类 的属性
     
     /**
      - parameter textColor:        文字颜色
@@ -79,7 +79,7 @@ public extension LGL where Base == UITextField {
         base.leftViewMode = .always
     }
     
-    //MARK: --- 创建UITextField实例对象
+    //MARK: --- 给LGL扩充  创建UITextField及其子类 的方法
     
     /**
      - parameter textColor:        文字颜色

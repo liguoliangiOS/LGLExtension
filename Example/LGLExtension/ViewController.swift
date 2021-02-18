@@ -14,7 +14,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         testUILabel()
-        
+        let lglv = LGLView()
+        lglv.lgl.set(UIColor.lgl.color(0x000000))
+//        let lglv2 = LGLView.lgl.view(20)
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,13 +51,11 @@ extension ViewController {
         self.view.addSubview(label2)
         
         //切角
-//        label.lgl.radius(.allCorners, 10)
-//        label.lgl.radius([.topLeft, .bottomRight], 10)
+        label.lgl.setRadius(.allCorners, 10)
+        label.lgl.setRadius([.topLeft, .bottomRight], 10)
+        //设置圆角和边框
+        label.lgl.setBorderRadius(10, true, color1, 2)
         
-//        label.lgl.borderRadius(<#T##cornerRadius: CGFloat##CGFloat#>, <#T##masksToBounds: Bool##Bool#>, color1, <#T##borderWidth: CGFloat##CGFloat#>)
-        label.lgl.borderRadius(10, true, color1, 2)
-        
-        label2.lgl.horizontalGradientLayer(UIColor.lgl.color("#00FFFF"), UIColor.lgl.color(0x7FFFAA), 10)
-        label2.text = "SSSSS"
+       
     }
 }

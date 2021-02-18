@@ -10,7 +10,7 @@ import UIKit
 
 extension UIBarButtonItem: LGLCompatible {}
 
-public extension LGL where Base == UIBarButtonItem {
+public extension LGL where Base : UIBarButtonItem {
     
     /**
      通过图片初始化

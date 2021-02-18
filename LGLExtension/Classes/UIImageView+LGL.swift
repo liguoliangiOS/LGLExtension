@@ -7,9 +7,9 @@
 
 import UIKit
 
-public extension LGL where Base == UIImageView {
+public extension LGL where Base : UIImageView {
     
-    //MARK: --- 设置UIImageView的属性
+    //MARK: ---给LGL扩充  设置UIImageView的属性
     
     /**
      - parameter imageName:        图片名字
@@ -41,7 +41,7 @@ public extension LGL where Base == UIImageView {
     }
     
     
-    //MARK: --- 创建UIImageView实例对象
+    //MARK: ---给LGL扩充   创建UIImageView的方法
     
     /**
      - parameter imageName:        图片名字

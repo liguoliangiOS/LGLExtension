@@ -10,7 +10,7 @@ import UIKit
 
 extension UINavigationController: LGLCompatible {}
 
-public extension LGL where Base == UINavigationController {
+public extension LGL where Base : UINavigationController {
     /**
      设置导航栏标题的字体颜色和大小
      - parameter color:        导航栏字体颜色

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1E1A55A01E9E0E09275644B3 /* Pods_LGLExtension_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E2271A06295F0C63248CA6C /* Pods_LGLExtension_Example.framework */; };
+		2C74AEA625DD7B0900ADC29E /* LGLNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74AEA525DD7B0900ADC29E /* LGLNavigationController.swift */; };
+		2C74AEB025DD7DC000ADC29E /* LGLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74AEAF25DD7DC000ADC29E /* LGLView.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -29,6 +31,8 @@
 
 /* Begin PBXFileReference section */
 		0F71C5A564CA2BFF518CB5CC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		2C74AEA525DD7B0900ADC29E /* LGLNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LGLNavigationController.swift; sourceTree = "<group>"; };
+		2C74AEAF25DD7DC000ADC29E /* LGLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGLView.swift; sourceTree = "<group>"; };
 		2DE3F4CE88B450D1CC770711 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* LGLExtension_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LGLExtension_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				2C74AEA525DD7B0900ADC29E /* LGLNavigationController.swift */,
+				2C74AEAF25DD7DC000ADC29E /* LGLView.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
@@ -351,6 +357,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				2C74AEA625DD7B0900ADC29E /* LGLNavigationController.swift in Sources */,
+				2C74AEB025DD7DC000ADC29E /* LGLView.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

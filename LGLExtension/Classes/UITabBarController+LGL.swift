@@ -10,7 +10,7 @@ import UIKit
 
 extension UITabBarController: LGLCompatible {}
 
-public extension LGL where Base == UITabBarController {
+public extension LGL where Base : UITabBarController {
     
     ///设置tabBar颜色
     func setTabBar(color: UIColor) {

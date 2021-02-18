@@ -7,8 +7,8 @@
 
 import UIKit
 
-///扩充便捷设置设置label的属性的方法
-public extension LGL where Base == UILabel {
+
+public extension LGL where Base : UILabel {
     /**
      - parameter text:              label的文字
      - parameter textColor:         label的字体颜色
@@ -55,7 +55,7 @@ public extension LGL where Base == UILabel {
         base.backgroundColor = backgroundColor
     }
     
-    //MARK: ----创建实例---
+    //MARK: 给LGL扩充  创建UILabel及其子类 的方法
     
     /**
      - parameter text:              label的文字
